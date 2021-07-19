@@ -5,17 +5,15 @@ import {
 } from 'react-native';
 
 import {Provider} from 'react-redux';
-import CounterAction from './redux_service/actions/CounterActions';
-import store from './redux_service/reducers/RootReducer';
+import {store} from './redux/Store';
 
-
-
+import Counter from './components/Counter';
 
 
 const App  = () => {
     return (
         <Provider store={store}>
-          <CounterAction />
+          <Counter />
         </Provider>
     );
 }

@@ -2,25 +2,20 @@ import React, {Component} from 'react';
 
 import {View, StyleSheet, Button} from 'react-native';
 
+import styles from '../styles/AppButton.style';
 
-
-class ActionButton extends Component {
+class AppButton extends Component {
     render() {
         return(
             <View style = {styles.button}>
                 <Button 
                     title = {this.props.title}
-                    onPress = {this.props.increment}
+                    onPress = {this.props.buttonAction}
                 />
             </View>
         )
     }
 }
 
-styles = StyleSheet.create ({
-    button: {
-        margin: 10,
-    }
-});
 
-export default ActionButton;
+export default AppButton;

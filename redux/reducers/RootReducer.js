@@ -1,4 +1,4 @@
-import {combineReducers, createStore} from 'redux';
+import {combineReducers} from 'redux';
 
 import CounterReducer from './CounterReducer';
 
@@ -10,6 +10,4 @@ const RootReducer = (state, action) => {
     return AppReducers(state, action);
 }
 
-const store = createStore(RootReducer);
-
-export default store;
+export default RootReducer;

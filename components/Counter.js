@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
-
+import {connect} from 'react-redux';
 import {View, Text, StyleSheet} from 'react-native';
 
+import {incrementCounter, decrementCounter, multiplyCounter} from '../redux/actions/CounterActions'
+import AppButton from './sharedComponents/AppButton';
 
-import ActionButton from './ActionButton';
+import styles from './styles/Counter.style';
 
 class Counter extends Component {
  
@@ -11,27 +13,24 @@ class Counter extends Component {
         return(
             <View style = {styles.container}>
                 <Text style = {styles.counterText}>{this.props.count}</Text>
-                <ActionButton title = "INCREMENT" increment = {this.props.increment}/>
-                <ActionButton title = "DECREMENT" increment = {this.props.decrement}/>
-                <ActionButton title = "MULTIPLY BY 2" increment = {this.props.multiply}/>
+                <AppButton title = "INCREMENT" buttonAction = {this.props.increment}/>
+                <AppButton title = "DECREMENT" buttonAction = {this.props.decrement}/>
+                <AppButton title = "MULTIPLY BY 2" buttonAction = {this.props.multiply}/>
             </View>
         );
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        padding: 10,
-        justifyContent: 'center'
-    },
-    counterText: {
-        fontSize: 100,
-        textAlign: 'center'
 
-    }
+
+const mapStateToProps = (state) => ({
+    count: state.CounterReducer.count
 });
 
+const mapDispatchToProps = (dispatch) => ({
+    increment: () => dispatch(incrementCounter()),
+    decrement: () => dispatch(decrementCounter()),
+    multiply: () => dispatch(multiplyCounter())
+});
 
-
-export default Counter;
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
