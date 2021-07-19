@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {View, Text, StyleSheet} from 'react-native';
 
 import {incrementCounter, decrementCounter, multiplyCounter} from '../redux/actions/CounterActions'
-import AppButton from './sharedComponents/AppButton';
+import AppButton from './shared/AppButton';
 
 import styles from './styles/Counter.style';
 
@@ -12,6 +12,7 @@ class Counter extends Component {
     render() {
         return(
             <View style = {styles.container}>
+                <Text style = {styles.heading}>Using Class Component</Text>
                 <Text style = {styles.counterText}>{this.props.count}</Text>
                 <AppButton title = "INCREMENT" buttonAction = {this.props.increment}/>
                 <AppButton title = "DECREMENT" buttonAction = {this.props.decrement}/>
