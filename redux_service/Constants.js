@@ -1,0 +1,3 @@
+export const INCREMENT = 'INCREMENT_COUNTER';
+export const DECREMENT = 'DECREMENT_COUNTER';
+export const MULTIPLIER = 'MULTIPLY_BY_TWO';
